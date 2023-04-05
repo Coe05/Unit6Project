@@ -1,6 +1,11 @@
 #BlueJ class context
 comment0.target=Term
-comment0.text=\n\ Write\ a\ description\ of\ class\ Term\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=a\ b
 comment1.target=Term(int,\ int)
-numComments=2
+comment2.params=
+comment2.target=int\ getCoefficent()
+comment3.params=
+comment3.target=int\ getExponent()
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

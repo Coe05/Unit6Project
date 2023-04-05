@@ -1,16 +1,22 @@
 
-/**
- * Write a description of class Term here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Term
 {
-   private int coefficent, exponent; 
+   private int Coefficent, Exponent; 
    public Term(int a, int b)
    {
-       coefficent = a; 
-       exponent = b; 
+       Coefficent = a; 
+       Exponent = b; 
+   }
+   public int getCoefficent()
+   {
+       return Coefficent;
+   }
+   public int getExponent()
+   {
+       return Exponent; 
+   }
+   public String toString()
+   {
+       return Coefficent + "x^" + Exponent;
    }
 }
