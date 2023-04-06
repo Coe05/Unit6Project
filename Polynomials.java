@@ -35,12 +35,20 @@ public class Polynomials
         
         sort(Mon1);
         sort(Mon2);
+        System.out.println("Here is your first Arraylist");
         for(int q = 0; q<Mon1.size(); q++)
         {
             System.out.print(Mon1.get(q) + " + "); 
         }
+        System.out.println();
+        System.out.println("Here is your second Arraylist");
         
-        sum(Mon1, Mon2);
+        for(int w = 0; w<Mon2.size(); w++)
+        {
+            System.out.print(Mon2.get(w) + " + "); 
+        }
+        
+        
 
     }
 
@@ -50,10 +58,7 @@ public class Polynomials
         {
             for(int x = 0; x<list1.size(); x++)
             {
-                if(list1.get(x).getExponent() == list2.get(x).getExponent())
-                {
-                    System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
-                }
+                
             }
         }
         else
