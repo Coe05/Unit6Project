@@ -2,4 +2,8 @@
 comment0.target=Polynomials
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=list
+comment2.target=void\ sort(java.util.ArrayList)
+comment3.params=p1\ p2
+comment3.target=int\ compare(Term,\ Term)
+numComments=4
