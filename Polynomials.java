@@ -31,11 +31,16 @@ public class Polynomials
             Mon2.add(z);
         }while(x != 0 & y != 0);
 
+        
+        
+        sort(Mon1);
+        sort(Mon2);
         for(int q = 0; q<Mon1.size(); q++)
         {
             System.out.print(Mon1.get(q) + " + "); 
         }
-        sort(Mon1);
+        
+        sum(Mon1, Mon2);
 
     }
 
@@ -70,12 +75,16 @@ public class Polynomials
             boolean flag = true;
             for(int y = 0; y<list.size()-1-x; y++)
             {
-                if(list.get(y).getExponent() > list.get(y+1).getExponent())
+                if(list.get(y).getExponent() < list.get(y+1).getExponent())
                 {
                     Term temp = list.remove(y); 
                     list.add(y+1, temp); 
                     flag = false;
                 }
+            }
+            if(flag)
+            {
+                break;
             }
         }
     }
