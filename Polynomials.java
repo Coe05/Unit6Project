@@ -31,18 +31,48 @@ public class Polynomials
             Mon2.add(z);
         }while(x != 0 & y != 0);
 
-        System.out.println(Mon1);
+        
+        
+        sort(Mon1);
+        sort(Mon2);
+        System.out.println("Here is your first Arraylist");
         for(int q = 0; q<Mon1.size(); q++)
         {
             System.out.print(Mon1.get(q) + " + "); 
         }
-        sort(Mon1);
+        System.out.println();
+        System.out.println("Here is your second Arraylist");
+        
+        for(int w = 0; w<Mon2.size(); w++)
+        {
+            System.out.print(Mon2.get(w) + " + "); 
+        }
+        
+        
 
     }
-    public static void sum(ArrayList<Term> list)
+
+    public static void sum(ArrayList<Term> list1, ArrayList<Term> list2)
     {
-        
+        if(list1.size() > list2.size())
+        {
+            for(int x = 0; x<list1.size(); x++)
+            {
+                
+            }
+        }
+        else
+        {
+            for(int x = 0; x<list2.size(); x++)
+            {
+                if(list1.get(x).getExponent() == list2.get(x).getExponent())
+                {
+                    System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
+                }
+            }
+        }
     }
+
     public static void sort(ArrayList<Term> list)
     {
         for(int x = 0; x<list.size(); x++)
@@ -50,12 +80,16 @@ public class Polynomials
             boolean flag = true;
             for(int y = 0; y<list.size()-1-x; y++)
             {
-                if(list.getExponent(y) > list.getExponent(y+1))
+                if(list.get(y).getExponent() < list.get(y+1).getExponent())
                 {
-                    int temp = list.remove(y); 
+                    Term temp = list.remove(y); 
                     list.add(y+1, temp); 
                     flag = false;
                 }
+            }
+            if(flag)
+            {
+                break;
             }
         }
     }
