@@ -11,21 +11,31 @@ Once they enter the data, your program should report the following things:
 The program should finish by printing each sentence in the
  */
 import java.util.*;
-public class TextAnalysis 
-{
-    public static void main (String [] args) 
-    {
-        Scanner reader = new Scanner(System.in);
-        ArrayList<String> list = new ArrayList<String>();
+
+
+public class TextAnalysis {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         
-        String paragraph; 
-        System.out.println("Type complete sentences here");
-        paragraph = reader.nextLine();
+        System.out.print("Enter a paragraph: ");
+        String paragraph = scanner.nextLine();
         
+        int numCharacters = paragraph.replaceAll("\\s", "").length();
+        int numWords = paragraph.split("\\s+").length;
+        int numSentences = paragraph.split("[.?!]").length;
+        double avgWordsPerSentence = (double) numWords / numSentences;
+        double avgWordLength = (double) numCharacters / numWords;
         
+        System.out.println("Total number of non-whitespace characters: " + numCharacters);
+        System.out.println("Total number of words: " + numWords);
+        System.out.println("Average number of words per sentence: " + avgWordsPerSentence);
+        System.out.println("Average word length: " + avgWordLength);
         
-        
-        
+        String[] sentences = paragraph.split("[.?!]");
+        System.out.println("Sentences:");
+        for (String sentence : sentences) {
+            System.out.println(sentence.trim());
+        }
     }
-    
 }
+
