@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Sort
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=list
+comment2.target=void\ SelectionSort(java.util.ArrayList)
+comment3.params=list\ spot
+comment3.target=int\ findsmall(java.util.ArrayList,\ int)
+numComments=4
