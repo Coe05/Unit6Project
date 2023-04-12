@@ -6,4 +6,6 @@ comment2.params=list
 comment2.target=void\ SelectionSort(java.util.ArrayList)
 comment3.params=list\ spot
 comment3.target=int\ findsmall(java.util.ArrayList,\ int)
-numComments=4
+comment4.params=list\ target
+comment4.target=int\ BinarySearch(java.util.ArrayList,\ int)
+numComments=5

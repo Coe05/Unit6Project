@@ -9,17 +9,23 @@ public class Sort
     public static void main (String [] args)
     {
         Random randy = new Random(); 
-        ArrayList<Integer> Binary = new ArrayList(); 
+        Scanner reader = new Scanner(System.in); 
+        ArrayList<Integer> Arra = new ArrayList(); 
         for(int x = 0; x<10; x++)
         {
-            Binary.add(randy.nextInt(101));
+            Arra.add(randy.nextInt(101));
         }
         
         
-        System.out.println(Binary); 
+        System.out.println(Arra); 
+        
+        SelectionSort(Arra);
         System.out.println("Selection sort: "); 
-        SelectionSort(Binary);
-        System.out.println("Binary Sort: "); 
+        System.out.println(Arra); 
+        System.out.println("Binary Search: "); 
+        System.out.println("Enter a number that you would like to find");
+        int x = reader.nextInt();
+        System.out.println(BinarySearch(Arra,x));
         
         
     }
@@ -30,9 +36,8 @@ public class Sort
         {
             int p = findsmall(list, i);
             int temp = list.get(i);
-            temp = list.get(i);
-            list.set(i,temp); 
-            
+            list.set(i, list.get(p));
+            list.set(p,temp); 
         }
     }
     public static int findsmall(ArrayList<Integer> list, int spot)
@@ -49,7 +54,31 @@ public class Sort
         }
         return p;
     }
+    //BinarySearch
+    public static int BinarySearch(ArrayList<Integer> list, int target)
+    {
+        int low = 0; 
+        int high = list.size()-1;
+        int mid; 
+        while(low <= high)
+        {
+            mid = (low+high)/2;
+            if(target == list.get(mid))
+            {
+                return mid;
+            }
+            else if(target > list.get(mid))
+            {
+                low = mid + 1; 
+            }
+            else 
+            {
+                high = mid - 1; 
+            }
+            
+        }
+        return -1; 
+    }
     
-    //Binary Sort
     
 }
