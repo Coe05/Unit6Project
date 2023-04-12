@@ -33,8 +33,6 @@ public class Polynomials
 
         
         
-        sort(Mon1);
-        sort(Mon2);
         System.out.println("Here is your first Arraylist");
         for(int q = 0; q<Mon1.size(); q++)
         {
@@ -48,7 +46,13 @@ public class Polynomials
             System.out.print(Mon2.get(w) + " + "); 
         }
         
+     
+        System.out.println(); 
         
+        bubble(Mon1); 
+        bubble(Mon2); 
+        System.out.println(Mon1); 
+        System.out.println(Mon2); 
 
     }
 
@@ -72,15 +76,31 @@ public class Polynomials
             }
         }
     }
-
-    public static void sort(ArrayList<Term> list)
+    
+    /*
+    public static void main(String [] args)
     {
-        for(int x = 0; x<list.size(); x++)
+        Random randy = new Random();
+        ArrayList<Integer> data = new ArrayList<Integer>();
+        for(int x=0; x<10; x++)
+        {
+            data.add(randy.nextInt(100));
+        }
+        System.out.println(data);
+        bubble(data);
+        System.out.println(data);
+        
+        
+    }
+    */
+    public static void bubble(ArrayList<Term> list)
+    {
+        for(int x= 0; x<list.size(); x++)
         {
             boolean flag = true;
             for(int y = 0; y<list.size()-1-x; y++)
             {
-                if(list.get(y).getExponent() < list.get(y+1).getExponent())
+                if(list.get(y).getExponent()>list.get(y+1).getExponent())
                 {
                     Term temp = list.remove(y); 
                     list.add(y+1, temp); 
@@ -93,5 +113,8 @@ public class Polynomials
             }
         }
     }
-
+    
 }
+
+
+
