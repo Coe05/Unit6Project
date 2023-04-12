@@ -10,15 +10,17 @@ public class Sort
     {
         Random randy = new Random(); 
         ArrayList<Integer> Binary = new ArrayList(); 
-        for(int x = 0; x<100; x++)
+        for(int x = 0; x<10; x++)
         {
-            int r = randy.nextInt(101); 
-            Binary.add(r);
+            Binary.add(randy.nextInt(101));
         }
         
-        SelectionSort(Binary);
         
-        System.out.println("dd");
+        System.out.println(Binary); 
+        System.out.println("Selection sort: "); 
+        SelectionSort(Binary);
+        System.out.println("Binary Sort: "); 
+        
         
     }
     //Selection Sort
@@ -28,19 +30,10 @@ public class Sort
         {
             int p = findsmall(list, i);
             int temp = list.get(i);
-            temp = list.get(p);
-            
+            temp = list.get(i);
+            list.set(i,temp); 
             
         }
-        /*
-        for(int i = 0; i<data.length-1; i++)
-        {
-            int p = findsmall(data, i);
-            int temp = data[i];
-            data[i] = data[p];
-            data[p] = temp; 
-        }
-         */
     }
     public static int findsmall(ArrayList<Integer> list, int spot)
     {
