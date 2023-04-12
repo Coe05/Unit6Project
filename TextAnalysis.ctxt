@@ -2,4 +2,10 @@
 comment0.target=TextAnalysis
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=y
+comment2.target=void\ TextAnalysis(java.lang.String)
+comment3.params=y
+comment3.target=void\ PrintSentences(java.lang.String)
+comment4.params=y
+comment4.target=int\ NumberSentences(java.lang.String)
+numComments=5
