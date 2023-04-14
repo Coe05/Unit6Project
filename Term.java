@@ -15,6 +15,10 @@ public class Term
    {
        return Exponent; 
    }
+   public void setCoefficent(int a)
+   {
+       Coefficent = a;
+   }
    public String toString()
    {
        return Coefficent + "x^" + Exponent;

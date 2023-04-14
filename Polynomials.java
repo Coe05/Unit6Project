@@ -13,7 +13,7 @@ public class Polynomials
 
         ArrayList<Term> Mon1 = new ArrayList<Term>();
         ArrayList<Term> Mon2 = new ArrayList<Term>();
-        ArrayList<Term> Sum = new ArrayList<Term>(); 
+
         int x = 0; 
         int y = 0; 
 
@@ -60,66 +60,15 @@ public class Polynomials
         System.out.println(Mon2); 
 
         System.out.println("Here is their product:"); 
+        ArrayList<Term> product = multiplyLists(Mon1, Mon2);
+        System.out.println(product); 
         System.out.println("Here is their sum:"); 
-        Sum(Mon1, Mon2 ); 
+        ArrayList<Term> Sum = Sum(Mon1, Mon2);
+        bubble(Sum);
         System.out.println(Sum); 
 
     }
 
-    public static ArrayList<Term> Sum(ArrayList<Term> list1, ArrayList<Term> list2)
-    {
-        ArrayList<Term> Sum = new ArrayList<Term>(); 
-
-        if(list1.size() > list2.size())
-        {
-            for(int x = 0; x<list1.size(); x++)
-            {
-                boolean q;
-                q = true;
-                for(int y = 0; y<list2.size(); y++)
-                {
-                    if(list1.get(x).getExponent() == list2.get(y).getExponent())
-                    {
-                        int c = (list1.get(x).getCoefficent())+(list2.get(y).getCoefficent());
-                        int e = list1.get(x).getExponent();
-                        list1.remove(x); 
-                        list2.remove(y); 
-                        x--;
-                        y--;
-                        Term r = new Term(c,e);
-                        Sum.add(r);
-                        q = false;
-
-                    }
-
-                }
-                if(q)
-                {
-                    Sum.add(list1.get(x));
-
-                    list1.remove(x); 
-                }
-            }
-            //adds the left overs to list
-            for(int z = 0; z<list2.size(); z++)
-            {
-                Sum.add(list2.get(z));
-            }
-
-        }
-        else
-        {
-            for(int x = 0; x<list2.size(); x++)
-            {
-                if(list1.get(x).getExponent() == list2.get(x).getExponent())
-                {
-                    System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
-                }
-            }
-        }
-        return Sum;
-
-    }
     public static void bubble(ArrayList<Term> list)
     {
         for(int x = 0; x<list.size(); x++)
@@ -140,6 +89,70 @@ public class Polynomials
             }
         }
     }
-}
 
+    public static ArrayList<Term> Sum(ArrayList<Term> list1, ArrayList<Term> list2) 
+    {
+        ArrayList<Term> result = new ArrayList<Term>();
+        int i = 0, j = 0;
+        while (i < list1.size() && j < list2.size()) {
+            if (list1.get(i).getExponent() == list2.get(j).getExponent()) {
+                int sum = list1.get(i).getCoefficent() + list2.get(j).getCoefficent();
+                if (sum != 0) {
+                    result.add(new Term(sum, list1.get(i).getExponent()));
+                }
+                i++;
+                j++;
+            } else if (list1.get(i).getExponent() > list2.get(j).getExponent()) {
+                result.add(list1.get(i));
+                i++;
+            } else {
+                result.add(list2.get(j));
+                j++;
+            }
+        }
+        while (i < list1.size()) {
+            result.add(list1.get(i));
+            i++;
+        }
+        while (j < list2.size()) {
+            result.add(list2.get(j));
+            j++;
+        }
+        return result;
+    }
+
+    public static ArrayList<Term> multiplyLists(ArrayList<Term> list1, ArrayList<Term> list2) {
+        ArrayList<Term> result = new ArrayList<>();
+        for (Term t1 : list1) {
+            for (Term t2 : list2) {
+                int c = t1.getCoefficent() * t2.getCoefficent();
+                int e = t1.getExponent() + t2.getExponent();
+                Term term = new Term(c, e);
+                result.add(term);
+            }
+        }
+        combineLikeTerms(result);
+        return result;
+    }
+
+    public static void combineLikeTerms(ArrayList<Term> list) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getExponent() == list.get(j).getExponent()) {
+                    int sum = list.get(i).getCoefficent() + list.get(j).getCoefficent();
+                    if (sum != 0) {
+                        list.get(i).setCoefficent(sum);
+                        list.remove(j);
+                        j--;
+                    } else {
+                        list.remove(j);
+                        j--;
+                        list.remove(i);
+                        i--;
+                    }
+                }
+            }
+        }
+    }
+}
 
