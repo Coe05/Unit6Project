@@ -75,7 +75,7 @@ public class Polynomials
             for(int x = 0; x<list1.size(); x++)
             {
                 boolean q;
-                q = t
+                q = true;
                 for(int y = 0; y<list2.size(); y++)
                 {
                     if(list1.get(x).getExponent() == list2.get(y).getExponent())
@@ -97,51 +97,49 @@ public class Polynomials
                 {
                     Sum.add(list1.get(x));
 
-                list1.remove(x); 
+                    list1.remove(x); 
+                }
+            }
+            //adds the left overs to list
+            for(int z = 0; z<list2.size(); z++)
+            {
+                Sum.add(list2.get(z));
+            }
+
+        }
+        else
+        {
+            for(int x = 0; x<list2.size(); x++)
+            {
+                if(list1.get(x).getExponent() == list2.get(x).getExponent())
+                {
+                    System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
+                }
             }
         }
+        return Sum;
 
     }
-    //adds the left overs to list
-    for(int z = 0; z<list2.size(); z++)
+    public static void bubble(ArrayList<Term> list)
     {
-        Sum.add(list2.get(z));
+        for(int x = 0; x<list.size(); x++)
+        {
+            boolean flag = true; 
+            for(int y = 0; y<list.size()-1-x; y++)
+            {
+                if(list.get(y).getExponent()<list.get(y+1).getExponent())
+                {
+                    Term temp = list.remove(y); 
+                    list.add(y+1, temp); 
+                    flag = false;
+                }
+                if(flag)
+                {
+                    break;
+                }
+            }
+        }
     }
-
-}
-else
-{
-for(int x = 0; x<list2.size(); x++)
-{
-if(list1.get(x).getExponent() == list2.get(x).getExponent())
-{
-System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
-}
-}
-}
-return Sum;
 }
 
-public static void bubble(ArrayList<Term> list)
-{
-for(int x= 0; x<list.size(); x++)
-{
-boolean flag = true;
-for(int y = 0; y<list.size()-1-x; y++)
-{
-if(list.get(y).getExponent()<list.get(y+1).getExponent())
-{
-Term temp = list.remove(y); 
-list.add(y+1, temp); 
-flag = false;
-}
-}
-if(flag)
-{
-break;
-}
-}
-}
-
-}
 
