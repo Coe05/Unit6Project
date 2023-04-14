@@ -13,6 +13,7 @@ public class Polynomials
 
         ArrayList<Term> Mon1 = new ArrayList<Term>();
         ArrayList<Term> Mon2 = new ArrayList<Term>();
+        ArrayList<Term> Sum = new ArrayList<Term>(); 
         int x = 0; 
         int y = 0; 
 
@@ -31,8 +32,12 @@ public class Polynomials
             Mon2.add(z);
         }while(x != 0 & y != 0);
 
-        
-        
+        //remove 0 0 
+        int u = Mon1.size(); 
+        int v = Mon2.size(); 
+        Mon1.remove(u-1); 
+        Mon2.remove(v-1); 
+
         System.out.println("Here is your first Arraylist");
         for(int q = 0; q<Mon1.size(); q++)
         {
@@ -40,81 +45,103 @@ public class Polynomials
         }
         System.out.println();
         System.out.println("Here is your second Arraylist");
-        
+
         for(int w = 0; w<Mon2.size(); w++)
         {
             System.out.print(Mon2.get(w) + " + "); 
         }
-        
-     
+
         System.out.println(); 
-        
         bubble(Mon1); 
         bubble(Mon2); 
+
+        System.out.println("Here are your two polynomials: ");
         System.out.println(Mon1); 
         System.out.println(Mon2); 
 
+        System.out.println("Here is their product:"); 
+        System.out.println("Here is their sum:"); 
+        Sum(Mon1, Mon2 ); 
+        System.out.println(Sum); 
+
     }
 
-    public static void sum(ArrayList<Term> list1, ArrayList<Term> list2)
+    public static ArrayList<Term> Sum(ArrayList<Term> list1, ArrayList<Term> list2)
     {
+        ArrayList<Term> Sum = new ArrayList<Term>(); 
+
         if(list1.size() > list2.size())
         {
             for(int x = 0; x<list1.size(); x++)
             {
-                
-            }
-        }
-        else
-        {
-            for(int x = 0; x<list2.size(); x++)
-            {
-                if(list1.get(x).getExponent() == list2.get(x).getExponent())
+                boolean q;
+                q = t
+                for(int y = 0; y<list2.size(); y++)
                 {
-                    System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
+                    if(list1.get(x).getExponent() == list2.get(y).getExponent())
+                    {
+                        int c = (list1.get(x).getCoefficent())+(list2.get(y).getCoefficent());
+                        int e = list1.get(x).getExponent();
+                        list1.remove(x); 
+                        list2.remove(y); 
+                        x--;
+                        y--;
+                        Term r = new Term(c,e);
+                        Sum.add(r);
+                        q = false;
+
+                    }
+
                 }
-            }
-        }
-    }
-    
-    /*
-    public static void main(String [] args)
-    {
-        Random randy = new Random();
-        ArrayList<Integer> data = new ArrayList<Integer>();
-        for(int x=0; x<10; x++)
-        {
-            data.add(randy.nextInt(100));
-        }
-        System.out.println(data);
-        bubble(data);
-        System.out.println(data);
-        
-        
-    }
-    */
-    public static void bubble(ArrayList<Term> list)
-    {
-        for(int x= 0; x<list.size(); x++)
-        {
-            boolean flag = true;
-            for(int y = 0; y<list.size()-1-x; y++)
-            {
-                if(list.get(y).getExponent()>list.get(y+1).getExponent())
+                if(q)
                 {
-                    Term temp = list.remove(y); 
-                    list.add(y+1, temp); 
-                    flag = false;
-                }
-            }
-            if(flag)
-            {
-                break;
+                    Sum.add(list1.get(x));
+
+                list1.remove(x); 
             }
         }
+
     }
-    
+    //adds the left overs to list
+    for(int z = 0; z<list2.size(); z++)
+    {
+        Sum.add(list2.get(z));
+    }
+
+}
+else
+{
+for(int x = 0; x<list2.size(); x++)
+{
+if(list1.get(x).getExponent() == list2.get(x).getExponent())
+{
+System.out.print(list1.get(x).getCoefficent() + list2.get(x).getCoefficent() + "x^" + list1.get(x).getExponent() );
+}
+}
+}
+return Sum;
 }
 
+public static void bubble(ArrayList<Term> list)
+{
+for(int x= 0; x<list.size(); x++)
+{
+boolean flag = true;
+for(int y = 0; y<list.size()-1-x; y++)
+{
+if(list.get(y).getExponent()<list.get(y+1).getExponent())
+{
+Term temp = list.remove(y); 
+list.add(y+1, temp); 
+flag = false;
+}
+}
+if(flag)
+{
+break;
+}
+}
+}
 
+}
 

@@ -3,8 +3,7 @@ comment0.target=Polynomials
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=list1\ list2
-comment2.target=void\ sum(java.util.ArrayList,\ java.util.ArrayList)
+comment2.target=java.util.ArrayList\ Sum(java.util.ArrayList,\ java.util.ArrayList)
 comment3.params=list
 comment3.target=void\ bubble(java.util.ArrayList)
-comment3.text=\n\ \ \ \ public\ static\ void\ main(String\ []\ args)\n\ \ \ \ {\n\ \ \ \ \ \ \ \ Random\ randy\ \=\ new\ Random();\n\ \ \ \ \ \ \ \ ArrayList<Integer>\ data\ \=\ new\ ArrayList<Integer>();\n\ \ \ \ \ \ \ \ for(int\ x\=0;\ x<10;\ x++)\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ data.add(randy.nextInt(100));\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ System.out.println(data);\n\ \ \ \ \ \ \ \ bubble(data);\n\ \ \ \ \ \ \ \ System.out.println(data);\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \n\ \ \ \ }\n
 numComments=4
