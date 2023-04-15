@@ -1,5 +1,5 @@
 /*
- * Write a program that modifies the Selection Sort and the Binary Search to work on an
+Write a program that modifies the Selection Sort and the Binary Search to work on an
 ArrayList of integers. Your program should have methods for each of those tasks as well
 as a main method that tests these methods. 
  */
@@ -11,14 +11,11 @@ public class Sort
         Random randy = new Random(); 
         Scanner reader = new Scanner(System.in); 
         ArrayList<Integer> Arra = new ArrayList(); 
-        for(int x = 0; x<10; x++)
+        for(int x = 0; x<50; x++)
         {
             Arra.add(randy.nextInt(101));
         }
-        
-        
         System.out.println(Arra); 
-        
         SelectionSort(Arra);
         System.out.println("Selection sort: "); 
         System.out.println(Arra); 
@@ -26,8 +23,6 @@ public class Sort
         System.out.println("Enter a number that you would like to find");
         int x = reader.nextInt();
         System.out.println(BinarySearch(Arra,x));
-        
-        
     }
     //Selection Sort
     public static void SelectionSort(ArrayList<Integer> list)
@@ -75,10 +70,7 @@ public class Sort
             {
                 high = mid - 1; 
             }
-            
         }
         return -1; 
     }
-    
-    
 }

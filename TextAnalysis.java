@@ -19,7 +19,9 @@ public class TextAnalysis
         System.out.println("Enter a parapgraph: ");
         String paragraph = reader.nextLine(); 
         TextAnalysis(paragraph);
+
     }
+
     public static void TextAnalysis(String y)
     {
         int Spaces = 1; 
@@ -60,27 +62,48 @@ public class TextAnalysis
         //The average word length.
         System.out.println("The average word length: " + (NonWhiteNonPeriod)/(Spaces));
         //Print each sentence
-        PrintSentences(y); 
+        System.out.println("Each Sentence: ");
+        SentenceArray(y);
+
     }
-    
-    public static void PrintSentences(String y)
+
+    public static void SentenceArray(String y)
     {
-        String period = ".";
-        int start = 0;
-        int end; 
-        System.out.println("Each sentence printed out:"); 
-        end = y.indexOf(period, start); 
-        while (end != -1)
+        ArrayList<String> str = new ArrayList<String>();
+
+        String space = ".";
+        int start = 0; 
+        int end = y.indexOf(space, start);  
+
+        while(end != -1)
         {
-            String sentence = y.substring(start, end);
-            System.out.println(sentence); 
+            String sentence = y.substring(start, end + 1);
+            str.add(sentence);
             start = end+1; 
-            end = y.indexOf(period, start); 
-            
+            end =y.indexOf(space, start);  
         }
         String sentence = y.substring(start); 
-        System.out.println(sentence); 
+        str.add(sentence);
+        
+        removeSpace(str); 
+        
+        for(int x = 0; x<str.size(); x++)
+        {
+            System.out.println(str.get(x));
+        }
     }
+    public static void removeSpace(ArrayList<String> list) 
+    {
+        for (int i = 0; i < list.size(); i++) 
+        {
+            String str = list.get(i);
+            if (str.startsWith(" ")) 
+            {
+                list.set(i, str.substring(1));
+            }
+        }
+    }
+
     public static int NumberSentences(String y) 
     {
         String period = ".";
