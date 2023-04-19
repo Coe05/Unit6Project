@@ -58,9 +58,10 @@ public class TextAnalysis
         //The total number of words in the paragraph.
         System.out.println("The number words: " + Spaces );
         //The average number of words per sentence.
-        System.out.println("The average number words per sentence: " + Spaces/NumberSentences(y)); 
+        System.out.println("The average number words per sentence: " + Spaces/NumberSentences(y));
+        System.out.println(NumberSentences(y));
         //The average word length.
-        System.out.println("The average word length: " + (NonWhiteNonPeriod)/(Spaces));
+        System.out.println("The average word length: " + (double)(NonWhiteNonPeriod)/(Spaces));
         //Print each sentence
         System.out.println("Each Sentence: ");
         SentenceArray(y);
@@ -110,7 +111,6 @@ public class TextAnalysis
         int start = 0;
         int end; 
         int NumberSentences = 0; 
-        System.out.println("Each sentence printed out:"); 
         end = y.indexOf(period, start); 
         while (end != -1)
         {
@@ -122,6 +122,6 @@ public class TextAnalysis
         String sentence = y.substring(start); 
         NumberSentences++; 
         //number of words 
-        return NumberSentences;
+        return NumberSentences - 1;
     }
 }

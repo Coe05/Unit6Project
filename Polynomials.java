@@ -22,26 +22,36 @@ public class Polynomials
             x = reader.nextInt(); 
             y = reader.nextInt();
             Term z = new Term(x,y);
-            Mon1.add(z);
-        }while(x != 0 & y != 0);
+            if(x == 0 && y == 0)
+            {
+                break;
+            }
+            else
+            {
+                Mon1.add(z);
+            }
+        }while(true);
         System.out.println("Enter 0 0 to stop."); 
         do{
             x = reader.nextInt(); 
             y = reader.nextInt();
             Term z = new Term(x,y);
-            Mon2.add(z);
-        }while(x != 0 & y != 0);
+            
+             if(x == 0 && y == 0)
+            {
+                break;
+            }
+            else
+            {
+                Mon2.add(z);
+            }
+        }while(true);
 
-        //remove 0 0 
-        int u = Mon1.size(); 
-        int v = Mon2.size(); 
-        Mon1.remove(u-1); 
-        Mon2.remove(v-1); 
 
         System.out.println("Here is your first Arraylist");
         for(int q = 0; q<Mon1.size(); q++)
         {
-            
+
             System.out.print(Mon1.get(q).toString());
             if (q + 1 != Mon1.size())
             {
@@ -58,7 +68,7 @@ public class Polynomials
             {
                 System.out.print("+");
             }
-                
+
         }
 
         System.out.println(); 
@@ -68,7 +78,7 @@ public class Polynomials
         System.out.println("Here are your two polynomials: ");
         for(int q = 0; q<Mon1.size(); q++)
         {
-            
+
             System.out.print(Mon1.get(q).toString());
             if (q + 1 != Mon1.size())
             {
@@ -83,11 +93,10 @@ public class Polynomials
             {
                 System.out.print("+");
             }
-                
+
         }
         System.out.println();
-        
-        
+
         System.out.println("Here is their product:"); 
         ArrayList<Term> product = multiplyLists(Mon1, Mon2);
         for(int n = 0; n<product.size(); n++)
@@ -101,7 +110,7 @@ public class Polynomials
         System.out.println("Here is their sum:"); 
         ArrayList<Term> Sum = Sum(Mon1, Mon2);
         bubble(Sum);
-        
+
         for(int n = 0; n<Sum.size(); n++)
         {
             if (Sum.get(n).getCoefficent() != 0)
@@ -109,10 +118,8 @@ public class Polynomials
             if (n + 1 != Sum.size())
                 System.out.print("+");
         }
-        
-       
-    }
 
+    }
     public static void bubble(ArrayList<Term> list)
     {
         for(int x = 0; x<list.size(); x++)
@@ -155,7 +162,7 @@ public class Polynomials
                 i++;
             } 
             else 
-            
+
             {
                 result.add(list2.get(j));
                 j++;
