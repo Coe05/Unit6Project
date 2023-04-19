@@ -76,6 +76,8 @@ public class Polynomials
         bubble(Mon2); 
 
         System.out.println("Here are your two polynomials: ");
+        combineLikeTerms(Mon1);
+        combineLikeTerms(Mon2);
         for(int q = 0; q<Mon1.size(); q++)
         {
 
